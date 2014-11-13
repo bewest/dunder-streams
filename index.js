@@ -17,7 +17,7 @@ function init (lo) {
   function omit (fields ) {
 
     function iter (data, next) {
-      next(null, _.omit(data, fields);
+      next(null, _.omit(data, fields));
     }
     return es.map(iter);
   }
@@ -25,18 +25,18 @@ function init (lo) {
   function pick (fields ) {
 
     function iter (data, next) {
-      next(null, _.pick(data, fields);
+      next(null, _.pick(data, fields));
     }
     return es.map(iter);
   }
 
   function dunder (op) {
-    var args = Array.prototype.slice(arguments);
-    op = args.shift( );
+    var args = Array.prototype.slice.call(arguments, 1);
+    var make = _[op];
     function iter (data, next) {
       var list = [data].concat(args.slice(0));
-      var make = _[op];
-      next(null, make.apply(_, list);
+      var r = make.apply(_, list);
+      next(null, r);
     }
     return es.map(iter);
   }

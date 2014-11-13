@@ -27,8 +27,8 @@ method defined the return value of calling `define(data, ctx)`.
 
 Use `checker(data) -> true/false` to determine whether or not there is
 an error.  When `loose` is set to true, the data will be dropped, when
-`loose` is set to falsey, the returned error will be injected into the
-stream.
+`loose` is set to falsey, the returned error emitted on the stream as
+an error.
 
 #### `dunder (op, args) -> stream`
 
